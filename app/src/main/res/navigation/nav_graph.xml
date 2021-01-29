@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.navigation_demo.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_choseReceiverFragment"
+            app:destination="@id/choseReceiverFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            />
+
+        <action
+            android:id="@+id/action_homeFragment_to_viewBlanceFragment"
+            app:destination="@id/viewBlanceFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            />
+        <action
+            android:id="@+id/action_homeFragment_to_viewFragment"
+            app:destination="@id/viewFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            />
+    </fragment>
+    <fragment
+        android:id="@+id/viewFragment"
+        android:name="com.example.navigation_demo.ViewFragment"
+        android:label="fragment_view"
+        tools:layout="@layout/fragment_view" />
+    <fragment
+        android:id="@+id/viewBlanceFragment"
+        android:name="com.example.navigation_demo.ViewBlanceFragment"
+        android:label="fragment_view_blance"
+        tools:layout="@layout/fragment_view_blance" >
+        <action
+            android:id="@+id/action_viewBlanceFragment_to_sendCashFragment"
+            app:destination="@id/sendCashFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/choseReceiverFragment"
+        android:name="com.example.navigation_demo.ChoseReceiverFragment"
+        android:label="fragment_chose_receiver"
+        tools:layout="@layout/fragment_chose_receiver" >
+
+        <action
+            android:id="@+id/action_choseReceiverFragment_to_sendCashFragment"
+            app:destination="@id/sendCashFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/sendCashFragment"
+        android:name="com.example.navigation_demo.SendCashFragment"
+        android:label="fragment_send_cash"
+        tools:layout="@layout/fragment_send_cash">
+        <argument
+            android:name="receiverName"
+            app:argType="string" />
+        <argument
+            android:name="amount"
+            app:argType="long" />
+        <action
+            android:id="@+id/action_sendCashFragment_to_confirmDialogFragment2"
+            app:destination="@id/confirmDialogFragment2" />
+        <action
+            android:id="@+id/action_sendCashFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:popUpTo="@id/homeFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <dialog
+        android:id="@+id/confirmDialogFragment2"
+        android:name="com.example.navigation_demo.ConfirmDialogFragment"
+        android:label="fragment_confirm_dialog"
+        tools:layout="@layout/fragment_confirm_dialog" >
+        <argument
+            android:name="recieverName"
+            app:argType="string" />
+        <argument
+            android:name="amount"
+            app:argType="long" />
+    </dialog>
+
+</navigation>
