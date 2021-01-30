@@ -25,11 +25,11 @@ class ConfirmDialogFragment : BottomSheetDialogFragment() {
         tv_message.text = "Do you want to receive money from {$receiverName} of amount {$amount}"
 
         btn_yes.setOnClickListener {
-            dismiss()
+            dialog!!.dismiss()
         }
 
         btn_no.setOnClickListener {
-            dismiss()
+            dialog!!.dismiss()
         }
 
     }

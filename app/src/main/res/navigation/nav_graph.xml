@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.example.navigation_demo.HomeFragment"
-        android:label="fragment_home"
+        android:label="Home"
         tools:layout="@layout/fragment_home" >
         <action
             android:id="@+id/action_homeFragment_to_choseReceiverFragment"
@@ -39,7 +39,7 @@
     <fragment
         android:id="@+id/viewFragment"
         android:name="com.example.navigation_demo.ViewFragment"
-        android:label="fragment_view"
+        android:label="View Balance"
         tools:layout="@layout/fragment_view" />
     <fragment
         android:id="@+id/viewBlanceFragment"
@@ -53,7 +53,7 @@
     <fragment
         android:id="@+id/choseReceiverFragment"
         android:name="com.example.navigation_demo.ChoseReceiverFragment"
-        android:label="fragment_chose_receiver"
+        android:label="Receive Cash"
         tools:layout="@layout/fragment_chose_receiver" >
 
         <action
@@ -67,7 +67,7 @@
     <fragment
         android:id="@+id/sendCashFragment"
         android:name="com.example.navigation_demo.SendCashFragment"
-        android:label="fragment_send_cash"
+        android:label="Send Cash - {receiverName}"
         tools:layout="@layout/fragment_send_cash">
         <argument
             android:name="receiverName"
@@ -87,7 +87,7 @@
     <dialog
         android:id="@+id/confirmDialogFragment2"
         android:name="com.example.navigation_demo.ConfirmDialogFragment"
-        android:label="fragment_confirm_dialog"
+        android:label="Confirm Dialog"
         tools:layout="@layout/fragment_confirm_dialog" >
         <argument
             android:name="recieverName"
