@@ -6,6 +6,7 @@ import android.view.Menu
 import android.view.MenuItem
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.onNavDestinationSelected
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
@@ -14,6 +15,10 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
     private lateinit var navControl: NavController
+
+    //for removing the back Button From Speicific Fragments
+    private lateinit var appBarConfiguration: AppBarConfiguration
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -21,7 +26,11 @@ class MainActivity : AppCompatActivity() {
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.fragment_home) as NavHostFragment
             navControl = navHostFragment.navController
-        setupActionBarWithNavController(navControl)
+
+        appBarConfiguration = AppBarConfiguration(setOf(R.id.homeFragment, R.id.settingFragment, R.id.notificationFragment) )
+
+
+        setupActionBarWithNavController(navControl, appBarConfiguration)
         bottomNavigation.setupWithNavController(navControl)
     }
 
