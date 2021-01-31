@@ -6,10 +6,7 @@ import android.view.Menu
 import android.view.MenuItem
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.onNavDestinationSelected
-import androidx.navigation.ui.setupActionBarWithNavController
-import androidx.navigation.ui.setupWithNavController
+import androidx.navigation.ui.*
 import kotlinx.android.synthetic.main.activity_main.*
 
 
@@ -27,15 +24,17 @@ class MainActivity : AppCompatActivity() {
             supportFragmentManager.findFragmentById(R.id.fragment_home) as NavHostFragment
             navControl = navHostFragment.navController
 
-        appBarConfiguration = AppBarConfiguration(setOf(R.id.homeFragment, R.id.settingFragment, R.id.notificationFragment) )
+        //added drawer layout for adding button of drawer on actionbar
+        appBarConfiguration = AppBarConfiguration(setOf(R.id.homeFragment, R.id.settingFragment, R.id.notificationFragment), drawer_layout )
 
 
         setupActionBarWithNavController(navControl, appBarConfiguration)
         bottomNavigation.setupWithNavController(navControl)
+        nav_drawer.setupWithNavController(navControl)
     }
 
     override fun onSupportNavigateUp(): Boolean {
-        return navControl.navigateUp()
+        return navControl.navigateUp(drawer_layout)
                 || super.onSupportNavigateUp()
     }
 

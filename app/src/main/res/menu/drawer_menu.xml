@@ -13,4 +13,16 @@
         android:icon="@drawable/ic_baseline_notifications_24"
         android:title="Notification"/>
 
+    <item android:title="Info">
+        <menu>
+            <item android:title="About App"
+                android:icon="@drawable/ic_info_24"
+                android:id="@+id/aboutFragment"
+                />
+
+
+        </menu>
+
+    </item>
+
 </menu>
