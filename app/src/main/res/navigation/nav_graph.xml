@@ -118,5 +118,10 @@
         app:popEnterAnim="@anim/slide_in_left"
         app:popExitAnim="@anim/slide_out_right"
         />
+    <fragment
+        android:id="@+id/notificationFragment"
+        android:name="com.example.navigation_demo.NotificationFragment"
+        android:label="fragment_notification"
+        tools:layout="@layout/fragment_notification" />
 
 </navigation>

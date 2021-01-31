@@ -8,6 +8,7 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.onNavDestinationSelected
 import androidx.navigation.ui.setupActionBarWithNavController
+import androidx.navigation.ui.setupWithNavController
 import kotlinx.android.synthetic.main.activity_main.*
 
 
@@ -21,6 +22,7 @@ class MainActivity : AppCompatActivity() {
             supportFragmentManager.findFragmentById(R.id.fragment_home) as NavHostFragment
             navControl = navHostFragment.navController
         setupActionBarWithNavController(navControl)
+        bottomNavigation.setupWithNavController(navControl)
     }
 
     override fun onSupportNavigateUp(): Boolean {
