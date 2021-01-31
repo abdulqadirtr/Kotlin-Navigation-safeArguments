@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.NavGraph
+import androidx.navigation.fragment.findNavController
 import kotlinx.android.synthetic.main.fragment_setting.*
 
 class SettingFragment : Fragment(R.layout.fragment_setting) {
@@ -17,5 +19,9 @@ class SettingFragment : Fragment(R.layout.fragment_setting) {
             SampleData.defaultAmount.value = deafaultValue
         }
 
+        btn_about_app.setOnClickListener {
+            val action = NavGraphDirections.actionGlobalAboutFragment()
+            findNavController().navigate(action)
+        }
     }
 }

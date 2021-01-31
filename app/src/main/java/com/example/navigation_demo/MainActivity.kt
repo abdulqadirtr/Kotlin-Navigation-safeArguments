@@ -34,7 +34,14 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return item.onNavDestinationSelected(navControl) || super.onOptionsItemSelected(item)
+        return when(item.itemId){
+            R.id.infoFragment ->{
+                val action = NavGraphDirections.actionGlobalAboutFragment()
+                navControl.navigate(action)
+                return true
+            }
+            else -> item.onNavDestinationSelected(navControl) || super.onOptionsItemSelected(item)
+        }
     }
 
 }
