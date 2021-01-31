@@ -6,13 +6,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.lifecycle.observe
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import kotlinx.android.synthetic.main.fragment_send_cash.*
 import kotlinx.android.synthetic.main.fragment_send_cash.view.*
 
 class SendCashFragment : Fragment() {
-    private val args : SendCashFragmentArgs by navArgs()
+    private val args: SendCashFragmentArgs by navArgs()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,20 +24,29 @@ class SendCashFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        val view: View =  inflater.inflate(R.layout.fragment_send_cash, container, false)
-        val navControl= findNavController()
+        val view: View = inflater.inflate(R.layout.fragment_send_cash, container, false)
+        val navControl = findNavController()
         val recieverName = args.receiverName
 
-        Toast.makeText(requireContext(), recieverName , Toast.LENGTH_LONG).show()
+        view.et_amount.setText(SampleData.defaultAmount.value.toString())
+        SampleData.defaultAmount.observe(viewLifecycleOwner) {
+            view.et_amount.setText(it.toString())
+        }
+
+
+        Toast.makeText(requireContext(), recieverName, Toast.LENGTH_LONG).show()
         view.tv_receiver.text = "Send Cash to ${recieverName.toString()}"
 
         view.btn_send.setOnClickListener {
-            if(view.et_amount.text.toString().isEmpty())
+            if (view.et_amount.text.toString().isEmpty())
                 return@setOnClickListener
 
             val amount = view.et_amount.text.toString().toLong()
 
-            val action = SendCashFragmentDirections.actionSendCashFragmentToConfirmDialogFragment2(recieverName, amount)
+            val action = SendCashFragmentDirections.actionSendCashFragmentToConfirmDialogFragment2(
+                recieverName,
+                amount
+            )
             navControl.navigate(action)
         }
 
@@ -51,7 +61,7 @@ class SendCashFragment : Fragment() {
 
         }
 
-       return view
+        return view
     }
 
-    }
+}

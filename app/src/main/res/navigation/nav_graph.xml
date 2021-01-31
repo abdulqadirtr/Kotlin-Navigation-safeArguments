@@ -96,5 +96,10 @@
             android:name="amount"
             app:argType="long" />
     </dialog>
+    <fragment
+        android:id="@+id/settingFragment"
+        android:name="com.example.navigation_demo.SettingFragment"
+        android:label="fragment_setting"
+        tools:layout="@layout/fragment_setting" />
 
 </navigation>

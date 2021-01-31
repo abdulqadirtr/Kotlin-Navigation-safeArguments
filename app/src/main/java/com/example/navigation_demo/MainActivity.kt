@@ -2,8 +2,11 @@ package com.example.navigation_demo
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.onNavDestinationSelected
 import androidx.navigation.ui.setupActionBarWithNavController
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -24,4 +27,14 @@ class MainActivity : AppCompatActivity() {
         return navControl.navigateUp()
                 || super.onSupportNavigateUp()
     }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.main_menu, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return item.onNavDestinationSelected(navControl) || super.onOptionsItemSelected(item)
+    }
+
 }

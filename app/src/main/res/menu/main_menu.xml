@@ -2,13 +2,10 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/action_add"
-        app:showAsAction="ifRoom"
-        android:title="Add">
-    </item>
-    <item
-        android:id="@+id/action_settings"
+        android:id="@+id/settingFragment"
         app:showAsAction="never"
+        android:menuCategory="secondary"
         android:title="Settings">
     </item>
+
 </menu>
