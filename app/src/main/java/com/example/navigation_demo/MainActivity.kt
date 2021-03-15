@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
             supportFragmentManager.findFragmentById(R.id.fragment_home) as NavHostFragment
             navControl = navHostFragment.navController
 
-        //added drawer layout for adding button of drawer on actionbar
+        //for hidding back button for top level layout
         appBarConfiguration = AppBarConfiguration(setOf(R.id.homeFragment, R.id.settingFragment, R.id.notificationFragment), drawer_layout )
 
 
@@ -46,7 +46,7 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when(item.itemId){
             R.id.infoFragment ->{
-                val action = NavGraphDirections.actionGlobalAboutFragment()
+                val action = NavGraphDirections.actionGlobalAboutFragment("Test")
                 navControl.navigate(action)
                 return true
             }

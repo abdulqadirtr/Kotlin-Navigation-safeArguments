@@ -15,7 +15,7 @@ class ViewBlanceFragment : Fragment(R.layout.fragment_view_blance) {
 
         btnTest.setOnClickListener {
 
-            val action = ViewBlanceFragmentDirections.actionViewBlanceFragmentToSendCashFragment("Test", 400)
+            val action = ViewBlanceFragmentDirections.actionViewBlanceFragmentToSendCashFragment("Test")
             findNavController().navigate(action)
         }
 

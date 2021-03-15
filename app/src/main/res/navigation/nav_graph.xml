@@ -77,9 +77,6 @@
         <argument
             android:name="receiverName"
             app:argType="string" />
-        <argument
-            android:name="amount"
-            app:argType="long" />
         <action
             android:id="@+id/action_sendCashFragment_to_confirmDialogFragment2"
             app:destination="@id/confirmDialogFragment2" />
@@ -88,6 +85,10 @@
             app:destination="@id/homeFragment"
             app:popUpTo="@id/homeFragment"
             app:popUpToInclusive="true" />
+        <deepLink
+            android:id="@+id/deepLink"
+            android:autoVerify="true"
+            app:uri="www.myweb.com/{receiverName}" />
     </fragment>
     <dialog
         android:id="@+id/confirmDialogFragment2"
@@ -104,13 +105,18 @@
     <fragment
         android:id="@+id/settingFragment"
         android:name="com.example.navigation_demo.SettingFragment"
-        android:label="fragment_setting"
+        android:label="Settings"
         tools:layout="@layout/fragment_setting" />
     <fragment
         android:id="@+id/aboutFragment"
         android:name="com.example.navigation_demo.AboutFragment"
         android:label="fragment_about"
-        tools:layout="@layout/fragment_about" />
+        tools:layout="@layout/fragment_about" >
+        <argument
+            android:name="test"
+            app:argType="string" />
+    </fragment>
+
     <action android:id="@+id/action_global_aboutFragment"
         app:destination="@id/aboutFragment"
         app:enterAnim="@anim/slide_in_right"

@@ -20,7 +20,7 @@ class SettingFragment : Fragment(R.layout.fragment_setting) {
         }
 
         btn_about_app.setOnClickListener {
-            val action = NavGraphDirections.actionGlobalAboutFragment()
+            val action = NavGraphDirections.actionGlobalAboutFragment("test")
             findNavController().navigate(action)
         }
     }
